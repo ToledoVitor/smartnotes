@@ -19,6 +19,6 @@ class NotesForm(forms.ModelForm):
     def clean_title(self):
         title = self.cleaned_data['title']
 
-        if 'Django' not in title:
-            raise ValidationError('We only accept notes about Django here!')
+        if len(title) < 5:
+            raise ValidationError('Too short my man!')
         return title
